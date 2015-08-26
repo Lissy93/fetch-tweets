@@ -9,8 +9,8 @@ var footer  = require('gulp-footer');
 var size    = require('gulp-size');
 var mocha   = require('gulp-mocha');
 var istanbul= require('gulp-istanbul');
-
-require('coffee-script/register')
+var watch   = require('gulp-watch');
+require('coffee-script/register');
 
 
 /* Delete the files currently in lib directory */
@@ -51,7 +51,11 @@ gulp.task('test', function (cb) {
         });
 });
 
+/* Watch for changes and refresh */
+gulp.task('watch', function(){
+    gulp.watch('./src/**/*.coffee', ['clean', 'coffee-script', 'test']);
 
+});
 
 /* Defualt gulp task, deletes old files, compiles source files and runs tests */
-gulp.task('default', ['clean', 'test', 'coffee-script']);
+gulp.task('default', ['clean', 'test', 'coffee-script', 'watch']);
