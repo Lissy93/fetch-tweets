@@ -1,11 +1,12 @@
 request = require 'request'
 qs = require 'querystring'
 
+endpoints = require './endpoints'
+
 class FetchTweets
   constructor: (@credentials) ->
 
   makeRequest = (url, credentials, callback) ->
-    console.log (credentials)
     oauth = {
       callback: '/'
       consumer_key: credentials.consumer_key
@@ -17,17 +18,13 @@ class FetchTweets
       oauth: oauth
     },(error, response, body)->
       if !error and response.statusCode == 200
-        #callback processResults(body)
-        console.log(body)
+        callback (body)
       return
     return
 
-  talk: ->
-    url = 'https://api.twitter.com/1.1/search/tweets.json?q=hello'
+  talk: (cb) ->
+    url = endpoints.FETCH_TWEETS+'?q=hello'
     makeRequest url, @credentials, (results) ->
-      console.log results
-      return
-
-
+      cb results
 
 module.exports = FetchTweets

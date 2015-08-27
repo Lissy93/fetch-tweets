@@ -4,4 +4,7 @@ config = {
   consumer_secret : 'OJh4gToZW2P37011GRP7zwChyAbAnzUF5teck0hnQZqvaPlj8M'
 }
 ft = new FetchTweets(config)
-ft.talk()
+
+ft.talk (results) ->
+  console.log results
+
