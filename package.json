@@ -44,5 +44,9 @@
     "istanbul": "^0.3.18",
     "mocha": "^2.2.5",
     "mochawesome": "^1.2.1"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0",
+    "request": "^2.61.0"
   }
 }
