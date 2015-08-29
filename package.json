@@ -2,7 +2,7 @@
   "name": "fetch-tweets",
   "version": "0.0.1",
   "description": "A node module that fetches tweets from Twitter based on topic, location, timeframe or combination",
-  "main": "lib/fetch-tweets.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha --dir ./reports/coverage-reports"
