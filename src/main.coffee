@@ -5,6 +5,6 @@ config = {
 }
 fetchTweets = new FetchTweets(config)
 
-fetchTweets.byTopic {q: 'awesom', count: 1}, (results) ->
+fetchTweets.byTopic {q: 'awesome', count: 1}, (results) ->
   console.log results
 

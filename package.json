@@ -4,7 +4,7 @@
   "description": "A node module that fetches tweets from Twitter based on topic, location, timeframe or combination",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "gulp test",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha --dir ./reports/coverage-reports"
   },
   "repository": {
