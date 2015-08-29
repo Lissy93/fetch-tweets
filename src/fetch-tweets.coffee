@@ -4,7 +4,12 @@ querystring = require 'querystring'
 endpoints = require './endpoints'
 
 class FetchTweets
-  constructor: (@credentials) ->
+
+  shouldFormatResults = null
+
+  constructor: (@credentials, @shouldFormatResults = true) ->
+    shouldFormatResults = @shouldFormatResults
+
 
   # Fetches the data from given URL from Twitter
   makeRequest = (url, credentials, callback) ->
@@ -24,6 +29,9 @@ class FetchTweets
 
   # Processes the results to get rid of not needed data
   formatResults = (twitterResults) ->
+    console.log(shouldFormatResults)
+    if !shouldFormatResults
+      return twitterResults
     tweetObjescts = []
     for rawTweetObject in twitterResults.statuses
       tweetObjescts.push({
@@ -37,19 +45,16 @@ class FetchTweets
         'retweet-count' : rawTweetObject.retweet_count
         'favorited-count' : rawTweetObject.favorite_count
         'lang' : rawTweetObject.lang
-
       })
     tweetObjescts
 
 
 
-  byTopic: (params, cb) ->
+  byTopic: (params = '', cb) ->
     if typeof params is 'string'
-      urlParams = 'q='+params
+      urlParams = 'q='+params+'&limit=100'
     else if typeof params is 'object'
       urlParams = querystring.stringify(params)
-    else
-      urlParams = 'q='+'test'
 
     url = endpoints.FETCH_TWEETS+'?'+urlParams
     makeRequest url, @credentials, (results) ->
