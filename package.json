@@ -46,7 +46,6 @@
     "mochawesome": "^1.2.1"
   },
   "dependencies": {
-    "querystring": "^0.2.0",
     "request": "^2.61.0"
   }
 }

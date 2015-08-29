@@ -1,5 +1,5 @@
 request = require 'request'
-qs = require 'querystring'
+querystring = require 'querystring'
 
 endpoints = require './endpoints'
 
@@ -20,8 +20,7 @@ class FetchTweets
     },(error, response, body)->
       if !error and response.statusCode == 200
         callback (body)
-      return
-    return
+
 
   # Processes the results to get rid of not needed data
   formatResults = (twitterResults) ->
@@ -44,8 +43,15 @@ class FetchTweets
 
 
 
-  byTopic: (topic, cb) ->
-    url = endpoints.FETCH_TWEETS+'?q='+topic
+  byTopic: (params, cb) ->
+    if typeof params is 'string'
+      urlParams = 'q='+params
+    else if typeof params is 'object'
+      urlParams = querystring.stringify(params)
+    else
+      urlParams = 'q='+'test'
+
+    url = endpoints.FETCH_TWEETS+'?'+urlParams
     makeRequest url, @credentials, (results) ->
       cb formatResults(results)
 
