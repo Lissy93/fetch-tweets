@@ -43,7 +43,8 @@
     "gulp-watch": "^4.3.5",
     "istanbul": "^0.3.18",
     "mocha": "^2.2.5",
-    "mochawesome": "^1.2.1"
+    "mochawesome": "^1.2.1",
+    "sinon": "^1.16.1"
   },
   "dependencies": {
     "request": "^2.61.0"
