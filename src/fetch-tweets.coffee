@@ -29,7 +29,6 @@ class FetchTweets
 
   # Processes the results to get rid of not needed data
   formatResults = (twitterResults) ->
-    console.log(shouldFormatResults)
     if !shouldFormatResults
       return twitterResults
     tweetObjescts = []
