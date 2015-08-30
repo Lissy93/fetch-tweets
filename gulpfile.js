@@ -19,7 +19,7 @@ gulp.task('clean', function (cb) {
 });
 
 /* Lint, compile and minify CoffeeScript */
-gulp.task('coffee-script',  function(){
+gulp.task('coffee-script', ['clean'],  function(){
     return gulp.src('./src/**/*.coffee')
         .pipe(lint())
         .pipe(lint.reporter())
@@ -51,9 +51,9 @@ gulp.task('test', function (cb) {
 
 /* Watch for changes and refresh */
 gulp.task('watch', function(){
-    gulp.watch('./src/**/*.coffee', ['clean', 'coffee-script', 'test']);
+    gulp.watch('./src/**/*.coffee', ['coffee-script', 'test']);
     gulp.watch('./test/**/*.coffee', ['test']);
 });
 
 /* Defualt gulp task, deletes old files, compiles source files and runs tests */
-gulp.task('default', ['clean', 'test', 'coffee-script', 'watch']);
+gulp.task('default', ['coffee-script', 'watch']);
