@@ -1,12 +1,15 @@
 # fetch-tweets
 > A simple to use, feature-rich, tested node module for fetching Tweets from the Twitter API.
 
-## Set up
 
+### Install 
 ```npm install fetch-tweets --save```
 
+### Set up
+Create a new Twitter app [here](https://apps.twitter.com/app/new) to get your consumer key and secret.
+
 Include the following code in your file. 
-This includes the fetch-tweets module, creates a new instance and passes in your Twitter API keys.
+
 ```
 var FetchTweets = require('fetch-tweets'); // Include the module
 
@@ -19,18 +22,22 @@ apiKeys = {
 // Create a new object and pass in keys and optional additional options (see below)
 var fetchTweets = new FetchTweets(apiKeys); 
 ```
+The above code: includes the fetch-tweets module, creates a new instance and passes in your Twitter API keys.
+
 
 ## Fetching Tweets by keyword(s)
 There are two methods of selecting Tweets by keyword, using Twitter search API. 
 * Single paramater string containing the search term
 * Single paramater JSON object containing options
+
 ### Simple example
 ```
 fetchTweets.byTopic('JavaScript', function(results){
    console.log(results); // Do whatever with the results
 });
 ```
-There are a series query operators that can be used inside this string parameter, such as fetching Tweets containg multiple keywords. To view a list of query operators click here.
+There are a series query operators that can be used inside this string parameter, such as fetching Tweets containg multiple keywords. 
+To view a list of query operators click here.
 
 ### Specifying more options
 You can also search for Tweets by passing in a JSON object containing options set by the Twitter API. There is an extensive list of options such as dates, locations, languages and popularity. For example:
@@ -57,6 +64,7 @@ There are two options for how you'd like your results returned:
 
 ### Formated Results (just the usefull stuff)
 This is default, so you don't need to do anything different than above
+
 Results will be returned in the following format:
 ```
 [
@@ -94,13 +102,20 @@ You can view an example of the format of these results [here, on the Twitter web
 
 ## Tests
 fetch-tweets uses Mocha, Chai, Sinon and Istanbul to form it's testing environment.
+
 To run all tests: ```npm test```
+
+Summary of test results will be outputed to the console, more detailed results are generated and saved in the reports directory 
 
 ## Building
 fetch-tweets uses gulp to prepare all the files
+
 Run ```gulp build``` to build
+
 Run ```gulp test``` to test
+
 Run ```gulp``` To clean directory, build, test, and watch for changes rebuilding when a file is modified
+
 
 License
 ----
