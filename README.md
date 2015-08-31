@@ -10,11 +10,11 @@ Create a new Twitter app [here](https://apps.twitter.com/app/new) to get your co
 
 Include the following code in your file. 
 
-```
+```javascript
 var FetchTweets = require('fetch-tweets'); // Include the module
 
 // Specify Twitter keys (preferably in an external .gitignore'd file)
-apiKeys = {
+var apiKeys = {
     consumer_key : 'XXXXXXXXXXXXXXXXXXXXXXXXX',
     consumer_secret : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 };
