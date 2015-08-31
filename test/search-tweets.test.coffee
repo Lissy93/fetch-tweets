@@ -4,7 +4,10 @@ sinon = require('sinon')
 
 # Modules to test
 fetchTweets = require '../index'
-twitterKeys = require '../examples/twitter-keys'
+twitterKeys = {
+  consumer_key : 'XXXXXXXXXXXXXXXXXXXXXXXXX',
+  consumer_secret : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+};
 
 # Fake data to use as sinon stubs
 fakeData1   = require './fake-data/search-tweets-fake-data1'

@@ -51,7 +51,7 @@ class FetchTweets
 
   byTopic: (params = '', cb) ->
     if typeof params is 'string'
-      urlParams = 'q='+params+'&limit=100'
+      urlParams = 'q='+params+'&count=100'
     else if typeof params is 'object'
       urlParams = querystring.stringify(params)
 

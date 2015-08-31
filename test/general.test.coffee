@@ -2,7 +2,10 @@ expect = require('chai').expect
 
 fetchTweets = require '../index'
 
-twitterKeys = require '../examples/twitter-keys'
+twitterKeys = {
+  consumer_key : 'XXXXXXXXXXXXXXXXXXXXXXXXX'
+  consumer_secret : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+}
 
 describe 'Check the modules basic functionality', ()->
 

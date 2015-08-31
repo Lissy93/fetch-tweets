@@ -20,7 +20,7 @@ apiKeys = {
 var fetchTweets = new FetchTweets(apiKeys); 
 ```
 
-## Selecting Tweets by keyword(s)
+## Fetching Tweets by keyword(s)
 There are two methods of selecting Tweets by keyword, using Twitter search API. 
 * Single paramater string containing the search term
 * Single paramater JSON object containing options
@@ -32,7 +32,7 @@ fetchTweets.byTopic('JavaScript', function(results){
 ```
 There are a series query operators that can be used inside this string parameter, such as fetching Tweets containg multiple keywords. To view a list of query operators click here.
 
-### Searching with more options
+### Specifying more options
 You can also search for Tweets by passing in a JSON object containing options set by the Twitter API. There is an extensive list of options such as dates, locations, languages and popularity. For example:
 
 ```
@@ -48,10 +48,12 @@ fetchTweets.byTopic(options, function(results){
 });
 ```
 
+View the full list of what you can pass in as options [here in the Twitter documentation](https://dev.twitter.com/rest/reference/get/search/tweets)
+
 ## The Results
 There are two options for how you'd like your results returned:
-* Formated Results - just the useful stuff *(default)*
-* Full Results - exactley what is returned by the Twitter API
+* Formatted Results - just the useful stuff *(default)*
+* Full Results - everything that is returned by the Twitter API
 
 ### Formated Results (just the usefull stuff)
 This is default, so you don't need to do anything different than above
@@ -90,10 +92,19 @@ var fetchTweets = new FetchTweets(apiKeys, false);
 
 You can view an example of the format of these results [here, on the Twitter website](https://dev.twitter.com/rest/reference/get/search/tweets)
 
+## Tests
+fetch-tweets uses Mocha, Chai, Sinon and Istanbul to form it's testing environment.
+To run all tests: ```npm test```
+
+## Building
+fetch-tweets uses gulp to prepare all the files
+Run ```gulp build``` to build
+Run ```gulp test``` to test
+Run ```gulp``` To clean directory, build, test, and watch for changes rebuilding when a file is modified
+
 License
 ----
-MIT
-
+MIT © [Alicia Sykes](http://aliciasykes.com)
 
 
 
