@@ -31,7 +31,7 @@ There are two methods of selecting Tweets by keyword, using Twitter search API.
 * Single paramater JSON object containing options
 
 ### Simple example
-```
+```javascript
 fetchTweets.byTopic('JavaScript', function(results){
    console.log(results); // Do whatever with the results
 });
@@ -42,7 +42,7 @@ To view a list of query operators click here.
 ### Specifying more options
 You can also search for Tweets by passing in a JSON object containing options set by the Twitter API. There is an extensive list of options such as dates, locations, languages and popularity. For example:
 
-```
+```javascript
 var options = {
   q: 'banana',
   lang: 'en',
@@ -66,7 +66,7 @@ There are two options for how you'd like your results returned:
 This is default, so you don't need to do anything different than above
 
 Results will be returned in the following format:
-```
+```javascript
 [
     {   date: 'Sun Aug 30 15:55:09 +0000 2015',
         body: 'JavaScript is just so totally awesome',
@@ -93,7 +93,7 @@ Results will be returned in the following format:
 
 ### Full Results
 If you would like the full results returned by the Twitter API, then you can specify the second parameter as false when creating the fetchTweets object:
-```
+```javascript
 var FetchTweets = require('fetch-tweets');
 var fetchTweets = new FetchTweets(apiKeys, false);
 ```
