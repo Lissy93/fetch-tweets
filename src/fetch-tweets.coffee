@@ -48,7 +48,6 @@ class FetchTweets
     tweetObjescts
 
 
-
   byTopic: (params = '', cb) ->
     if typeof params is 'string'
       urlParams = 'q='+params+'&count=100'
