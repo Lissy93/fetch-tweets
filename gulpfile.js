@@ -26,7 +26,7 @@ gulp.task('clean', function (cb) {
 
 /* Lint, compile and minify CoffeeScript */
 gulp.task('build', ['clean'],  function(){
-    return gulp.src('./src/**/*.coffee')
+    return gulp.src('./fetch-tweets.coffee')
         .pipe(lint())
         .pipe(lint.reporter())
         .pipe(coffee())
@@ -59,7 +59,7 @@ gulp.task('test', function (cb) {
 
 /* Watch for changes and refresh */
 gulp.task('watch', function(){
-    gulp.watch('./src/**/*.coffee', ['test-after-build']);
+    gulp.watch('./fetch-tweets.coffee', ['test-after-build']);
     gulp.watch('./test/**/*.coffee', ['test']);
 });
 
