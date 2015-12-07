@@ -1,8 +1,6 @@
 request = require 'request'
 querystring = require 'querystring'
 
-endpoints = require './endpoints'
-
 class FetchTweets
 
   shouldFormatResults = null
@@ -54,8 +52,11 @@ class FetchTweets
     else if typeof params is 'object'
       urlParams = querystring.stringify(params)
 
-    url = endpoints.FETCH_TWEETS+'?'+urlParams
+    url = 'https://api.twitter.com/1.1/search/tweets.json?'+urlParams
     makeRequest url, @credentials, (results) ->
       cb formatResults(results)
 
 module.exports = FetchTweets
+
+
+
