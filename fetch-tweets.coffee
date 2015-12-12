@@ -34,19 +34,37 @@ class FetchTweets
       tweetObjescts.push({
         'date': rawTweetObject.created_at,
         'body': rawTweetObject.text
-        'location': {
-          'geo' : rawTweetObject.geo
-          'coordinates' : rawTweetObject.coordinates
-          'place' : rawTweetObject.place
-        }
+        'location': prepareLocation(rawTweetObject)
         'retweet-count' : rawTweetObject.retweet_count
         'favorited-count' : rawTweetObject.favorite_count
         'lang' : rawTweetObject.lang
       })
     tweetObjescts
 
+  # Get location
+  prepareLocation = (body) ->
+    location =
+      place_name: '_'
+      location: { lat: 0.0000000, lng: 0.0000000 }
+
+    # Check Coordinates object
+    if body.coordinates?
+      location.location.lat = body.coordinates.coordinates[1]
+      location.location.lng = body.coordinates.coordinates[0]
+    else if body.geo?
+      location.location.lat = body.geo.coordinates[0]
+      location.location.lng = body.geo.coordinates[1]
+
+    # Check for place name
+    if body.place?
+      location.place_name = body.place.name
+    else if body.user?
+      location.place_name = body.user.location
+    location
+
 
   byTopic: (params = '', cb) ->
+
     if typeof params is 'string'
       urlParams = 'q='+params+'&count=100'
     else if typeof params is 'object'
