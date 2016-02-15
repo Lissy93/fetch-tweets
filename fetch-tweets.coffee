@@ -62,6 +62,13 @@ class FetchTweets
       location.place_name = body.user.location
     location
 
+  formatTrends = (preResults) ->
+    results = []
+    for item in preResults[0].trends
+      results.push {trend: item.name, volume: item.tweet_volume}
+    results
+
+
 
   byTopic: (params = '', cb) ->
 
@@ -74,7 +81,10 @@ class FetchTweets
     makeRequest url, @credentials, (results) ->
       cb formatResults(results)
 
+
+  trending: (placeId, cb) ->
+    trendingUrl = 'https://api.twitter.com/1.1/trends/place.json'+'?id='+placeId
+    makeRequest trendingUrl, @credentials, (results) -> cb formatTrends results
+
+
 module.exports = FetchTweets
-
-
-
