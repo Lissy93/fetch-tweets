@@ -87,4 +87,9 @@ class FetchTweets
     makeRequest trendingUrl, @credentials, (results) -> cb formatTrends results
 
 
+  closestTrendingWoeid: (lat, long, cb) ->
+    url="https://api.twitter.com/1.1/trends/closest.json?lat=#{lat}&long=#{long}"
+    makeRequest url, @credentials, (results) -> cb results
+
+    
 module.exports = FetchTweets
