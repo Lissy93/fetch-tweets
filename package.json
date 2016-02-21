@@ -1,6 +1,6 @@
 {
   "name": "fetch-tweets",
-  "version": "0.1.0",
+  "version": "0.1.7",
   "description": "A node module that fetches tweets from Twitter based on topic, location, timeframe or combination",
   "main": "index.js",
   "scripts": {
