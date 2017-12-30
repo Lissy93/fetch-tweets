@@ -1,4 +1,6 @@
 # fetch-tweets
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Lissy93/fetch-tweets.svg)](https://greenkeeper.io/)
 > A simple to use, feature-rich, tested node module for fetching Tweets from the Twitter API.
 
 
@@ -119,7 +121,7 @@ Run ```gulp``` To clean directory, build, test, and watch for changes rebuilding
 
 License
 ----
-MIT © [Alicia Sykes](http://aliciasykes.com)
+MIT Â© [Alicia Sykes](http://aliciasykes.com)
 
 
 
